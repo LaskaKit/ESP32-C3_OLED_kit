@@ -50,8 +50,6 @@ void setup() {
   // set dedicated I2C pins 8 - SCD, 10 SCL for ESP32-C3-LPKit
   Wire.begin(8, 10);
 
-// initilizace BME280 | BME280 Initialization
-  Wire.begin(19,18); // SDA SCL
   if (! bme.begin(BME280_ADDRESS)) {
     Serial.println("Could not find a valid BME280 sensor, check wiring!");
     while (1);
