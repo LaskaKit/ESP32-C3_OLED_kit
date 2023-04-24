@@ -20,8 +20,7 @@
 #include <Wire.h>
 #include <Adafruit_GFX.h>
 #include <Adafruit_SH110X.h>
-
-#include "SparkFun_SCD4x_Arduino_Library.h"
+#include <SparkFun_SCD4x_Arduino_Library.h>
 
 // fonts
 #include "DSEG14_Classic_Bold_32px.h"
@@ -29,8 +28,8 @@
 
 // OLED 
 // uncomment only one of them, check the solderbridge on LaskaKit OLED
-//#define i2c_Address 0x3c //initialize with the I2C addr 0x3C
-#define i2c_Address 0x3d  //initialize with the I2C addr 0x3D
+#define i2c_Address 0x3c //initialize with the I2C addr 0x3C
+//#define i2c_Address 0x3d  //initialize with the I2C addr 0x3D
 
 #define SCREEN_WIDTH 128  // OLED display width, in pixels
 #define SCREEN_HEIGHT 64  // OLED display height, in pixels
@@ -47,6 +46,11 @@ SCD4x SCD41;
 void setup() {
   // Speed of Serial
   Serial.begin(115200);
+  delay(5000);    
+  while (!Serial) {
+    ; // wait for serial port to connect. Needed for native USB
+  }
+  Serial.println("Setup staart");
   // set dedicated I2C pins 8 - SCD, 10 SCL for ESP32-C3-LPKit
   Wire.begin(8, 10);
 
@@ -70,11 +74,12 @@ void setup() {
   if (SCD41.startLowPowerPeriodicMeasurement() == true) {
     Serial.println("Low power mode enabled.");
   }
+  Serial.println("Setup done");
 }
 
 
 void loop() {
-
+  Serial.println("Start of loop");
   if(SCD41.readMeasurement())  // wait for a new data (approx 30s)
   {
     /*----- SCD41 sequence ------*/
@@ -118,9 +123,10 @@ void loop() {
     display.display();
 
     // go to sleep for 1 minute
+    Serial.println("Going to sleep");
     esp_sleep_enable_timer_wakeup(60 * 1000000);
     esp_deep_sleep_start();
   }
-
+  Serial.println("End of loop, you should never see this");
   delay(500);
 }
