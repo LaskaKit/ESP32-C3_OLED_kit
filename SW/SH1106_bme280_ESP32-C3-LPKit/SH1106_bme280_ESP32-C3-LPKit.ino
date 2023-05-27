@@ -40,7 +40,7 @@ Adafruit_SH1106G display = Adafruit_SH1106G(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, 
 Adafruit_BME280 bme;
 
 float temperature = 0.0;
-float pressure =    0.0;
+int pressure =    0.0;
 int humidity =        0;
 
 void setup() {
