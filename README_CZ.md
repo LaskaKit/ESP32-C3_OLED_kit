@@ -2,8 +2,8 @@
 
 # ESP32-C3_OLED_kit
 
-Měření teploty, vlhkosti tlaku nebo CO2 za pár korun do domácnosti nebo kanceláře. V této jedné malé krabičce je vše precizně připraveno pro osazení displeje, čidla i řídící desky. 
-Celou měřící stanici obsluhuje [LaskaKit ESP32-C3-LPKit](https://www.laskakit.cz/laskkit-esp-12-board/?variantId=10482). Na této malé desce je čip ESP32-C3 podporující Wi-Fi a Bluetooth připojení, možnost připojení baterie, I2C čidla díky [našemu uŠup konektoru](https://blog.laskakit.cz/predstavujeme-univerzalni-konektor-pro-propojeni-modulu-a-cidel-%ce%bcsup/). Navíc, deska samotná má možnost osadit dvojici hřebínků na které jsou vyvedeny další GPIO piny a sběrnice ve stejném pinoutu jako je má Wemos D1 Mini. 
+Měření teploty, vlhkosti tlaku nebo CO2 za pár korun do domácnosti nebo kanceláře. V této jedné malé krabičce je vše precizně připraveno pro osazení displeje, čidla i řídící desky. </br>
+Celou měřící stanici obsluhuje [LaskaKit ESP32-C3-LPKit](https://www.laskakit.cz/laskkit-esp-12-board/?variantId=10482). Na této malé desce je čip ESP32-C3 podporující Wi-Fi a Bluetooth připojení, možnost připojení baterie, I2C čidla díky [našemu uŠup konektoru](https://blog.laskakit.cz/predstavujeme-univerzalni-konektor-pro-propojeni-modulu-a-cidel-%ce%bcsup/). Navíc, deska samotná má možnost osadit dvojici hřebínků na které jsou vyvedeny další GPIO piny a sběrnice ve stejném pinoutu jako je má Wemos D1 Mini. </br>
 Není tak problém použít jeden z [mnoha rozšiřujících desek - shieldů](https://www.laskakit.cz/esp-a-wemos/). 
 
 Zpět ale k tomuto kitu - [LaskaKit ESP32-C3 OLED](https://www.laskakit.cz/laskkit-esp-12-board/?variantId=10482) s použitým čidlem [LaskaKit SCD41 pro měření teploty, vlhkosti a koncentrace CO2](https://www.laskakit.cz/laskakit-scd41-senzor-co2--teploty-a-vlhkosti-vzduchu/). 
@@ -13,16 +13,16 @@ V tomto článku se dozvíš, jak to všechno jednoduše poskládat a ukážeme 
 ![ESP32-C3 OLED kit a měření teploty, vlhkosti a koncentrace CO2](https://github.com/LaskaKit/ESP32-C3_OLED_kit/blob/main/pic/1.1.jpg)
 
 ## Seznam dílů
-Základem jsou je LaskaKit ESP32-C3 OLED kit, který obsahuje:
-1x  [LaskaKit ESP32-C3-LPKit](https://www.laskakit.cz/laskkit-esp-12-board/?variantId=10482) 
-1x  [LaskaKit SCD41 Senzor CO2, teploty a vlhkosti vzduchu](https://www.laskakit.cz/laskakit-scd41-senzor-co2--teploty-a-vlhkosti-vzduchu/) nebo [LaskaKit BME280 Senzor tlaku, teploty a vlhkosti vzduchu](https://www.laskakit.cz/arduino-senzor-tlaku--teploty-a-vlhkosti-bme280/) 
-1x  [LaskaKit OLED displej 128x64 1.3" I²C](https://www.laskakit.cz/laskakit-oled-displej-128x64-1-3--i2c/?variantId=11903) 
-1x  [μŠup, STEMMA QT, Qwiic JST-SH 4-pin kabel - 5cm](https://www.laskakit.cz/--sup--stemma-qt--qwiic-jst-sh-4-pin-kabel-5cm/) 
-1x  [μŠup, STEMMA QT, Qwiic JST-SH 4-pin kabel - 10cm](https://www.laskakit.cz/--sup--stemma-qt--qwiic-jst-sh-4-pin-kabel-10cm/) 
-8x [Šroub do plastu s půlkulatou hlavou a kříž. drážkou 2,2x5](https://www.laskakit.cz/sroub-do-termoplastu-s-cockovou-hlavou-a-krizovou-drazkou-2-2x5-bn-82428-ocel/)
-2x [Šroub do plastu s půlkulatou hlavou a kříž. drážkou 2,2x8](https://www.laskakit.cz/sroub-do-plastu-s-pulkulatou-hlavou-a-kriz--drazkou-2-2x8-bn-82428-zb/)
-4x [Šroub do plastu s půlkulatou hlavou a kříž. drážkou 2,2x16](https://www.laskakit.cz/sroub-do-termoplastu-s-cockovou-hlavou-a-krizovou-drazkou-2-2x16-bn-82428-ocel/)
-1x Krabička pro čidlo SCD41 (CO2, teplota, vlhkost) nebo BME280 (tlak, teplota, vlhkost)
+Základem jsou je LaskaKit ESP32-C3 OLED kit, který obsahuje:</br>
+1x  [LaskaKit ESP32-C3-LPKit](https://www.laskakit.cz/laskkit-esp-12-board/?variantId=10482) </br>
+1x  [LaskaKit SCD41 Senzor CO2, teploty a vlhkosti vzduchu](https://www.laskakit.cz/laskakit-scd41-senzor-co2--teploty-a-vlhkosti-vzduchu/) nebo [LaskaKit BME280 Senzor tlaku, teploty a vlhkosti vzduchu](https://www.laskakit.cz/arduino-senzor-tlaku--teploty-a-vlhkosti-bme280/) </br>
+1x  [LaskaKit OLED displej 128x64 1.3" I²C](https://www.laskakit.cz/laskakit-oled-displej-128x64-1-3--i2c/?variantId=11903) </br>
+1x  [μŠup, STEMMA QT, Qwiic JST-SH 4-pin kabel - 5cm](https://www.laskakit.cz/--sup--stemma-qt--qwiic-jst-sh-4-pin-kabel-5cm/) </br>
+1x  [μŠup, STEMMA QT, Qwiic JST-SH 4-pin kabel - 10cm](https://www.laskakit.cz/--sup--stemma-qt--qwiic-jst-sh-4-pin-kabel-10cm/) </br>
+8x [Šroub do plastu s půlkulatou hlavou a kříž. drážkou 2,2x5](https://www.laskakit.cz/sroub-do-termoplastu-s-cockovou-hlavou-a-krizovou-drazkou-2-2x5-bn-82428-ocel/)</br>
+2x [Šroub do plastu s půlkulatou hlavou a kříž. drážkou 2,2x8](https://www.laskakit.cz/sroub-do-plastu-s-pulkulatou-hlavou-a-kriz--drazkou-2-2x8-bn-82428-zb/)</br>
+4x [Šroub do plastu s půlkulatou hlavou a kříž. drážkou 2,2x16](https://www.laskakit.cz/sroub-do-termoplastu-s-cockovou-hlavou-a-krizovou-drazkou-2-2x16-bn-82428-ocel/)</br>
+1x Krabička pro čidlo SCD41 (CO2, teplota, vlhkost) nebo BME280 (tlak, teplota, vlhkost)</br>
 
 ## Programování
 Než složíme celé zařízení dohromady, naprogramujeme řídící desku. Program, [který najdeš tady](https://github.com/LaskaKit/ESP32-C3_OLED_kit/tree/main/SW/SH1106_SCD41_ESP32-C3-LPKit), dělá to, že změří CO2, teplotu, vlhkost (nebo tlak, teplotu, vlhkost) a zobrazí ji na displeji a poté se zařízení uspí. 
