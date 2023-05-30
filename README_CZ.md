@@ -50,6 +50,10 @@ a/nebo BME280
 
 ![ESP32-C3 OLED kit a podpora BME280](https://github.com/LaskaKit/ESP32-C3_OLED_kit/blob/main/pic/ArduinoIDE_5.1.jpg)
 
+a/nebo SHT41
+
+![ESP32-C3 OLED kit a podpora SHT41](https://github.com/LaskaKit/ESP32-C3_OLED_kit/blob/main/pic/ArduinoIDE_5.2.jpg)
+
 Vybereme správnou desku
 
 ![ESP32-C3 OLED kit a výběr desky](https://github.com/LaskaKit/ESP32-C3_OLED_kit/blob/main/pic/ArduinoIDE_6.jpg)
