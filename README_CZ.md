@@ -20,9 +20,8 @@ Základem jsou je LaskaKit ESP32-C3 OLED kit, který obsahuje:</br>
 1x  [LaskaKit OLED displej 128x64 1.3" I²C](https://www.laskakit.cz/laskakit-oled-displej-128x64-1-3--i2c/?variantId=11903) </br>
 1x  [μŠup, STEMMA QT, Qwiic JST-SH 4-pin kabel - 5cm](https://www.laskakit.cz/--sup--stemma-qt--qwiic-jst-sh-4-pin-kabel-5cm/) </br>
 1x  [μŠup, STEMMA QT, Qwiic JST-SH 4-pin kabel - 10cm](https://www.laskakit.cz/--sup--stemma-qt--qwiic-jst-sh-4-pin-kabel-10cm/) </br>
-8x [Šroub do plastu s půlkulatou hlavou a kříž. drážkou 2,2x5](https://www.laskakit.cz/sroub-do-termoplastu-s-cockovou-hlavou-a-krizovou-drazkou-2-2x5-bn-82428-ocel/)</br>
-2x [Šroub do plastu s půlkulatou hlavou a kříž. drážkou 2,2x8](https://www.laskakit.cz/sroub-do-plastu-s-pulkulatou-hlavou-a-kriz--drazkou-2-2x8-bn-82428-zb/)</br>
-4x [Šroub do plastu s půlkulatou hlavou a kříž. drážkou 2,2x16](https://www.laskakit.cz/sroub-do-termoplastu-s-cockovou-hlavou-a-krizovou-drazkou-2-2x16-bn-82428-ocel/)</br>
+10x [Šroub do plastu s půlkulatou hlavou a kříž. drážkou 2,2x5](https://www.laskakit.cz/sroub-do-termoplastu-s-cockovou-hlavou-a-krizovou-drazkou-2-2x5-bn-82428-ocel/)</br>
+6x [Šroub do plastu s půlkulatou hlavou a kříž. drážkou 2,2x8](https://www.laskakit.cz/sroub-do-plastu-s-pulkulatou-hlavou-a-kriz--drazkou-2-2x8-bn-82428-zb/)</br>
 1x Krabička pro čidlo SCD41 (CO2, teplota, vlhkost) nebo BME280 (tlak, teplota, vlhkost) / SHT41 (teplota a vlhkost).</br>
 
 ## Programování
