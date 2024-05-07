@@ -1,4 +1,4 @@
-![ESP32-C3 OLED kit a měření teploty, vlhkosti a koncentrace CO2](https://github.com/LaskaKit/ESP32-C3_OLED_kit/blob/main/pic/10.jpg)
+![ESP32-C3 OLED kit a měření teploty, vlhkosti a koncentrace CO2](https://github.com/LaskaKit/ESP32-C3_OLED_kit/blob/main/img/10.jpg)
 
 # ESP32-C3_OLED_kit
 
@@ -11,7 +11,7 @@ Osadit ale můžeš i jiná čidla. Pokud chceš měřit tlak místo koncentrace
 
 V tomto článku se dozvíš, jak to všechno jednoduše poskládat a ukážeme ti jak to celé rozfungovat během pár minut. 
 
-![ESP32-C3 OLED kit a měření teploty, vlhkosti a koncentrace CO2](https://github.com/LaskaKit/ESP32-C3_OLED_kit/blob/main/pic/1.1.jpg)
+![ESP32-C3 OLED kit a měření teploty, vlhkosti a koncentrace CO2](https://github.com/LaskaKit/ESP32-C3_OLED_kit/blob/main/img/1.1.jpg)
 
 ## Seznam dílů
 Základem jsou je LaskaKit ESP32-C3 OLED kit, který obsahuje:</br>
@@ -31,63 +31,63 @@ Zasuň USB-C konektor do ESP32-C3-LPkit a poté do počítače, kde sis už nain
 Nainstalujeme knihovnu podporující čipy ESP32 v Arduino IDE. 
 Z https://github.com/espressif/arduino-esp32, vlož tento odkaz https://espressif.github.io/arduino-esp32/package_esp32_index.json
 
-![ESP32-C3 OLED kit a přidání knihovny](https://github.com/LaskaKit/ESP32-C3_OLED_kit/blob/main/pic/ArduinoIDE_1.jpg)
+![ESP32-C3 OLED kit a přidání knihovny](https://github.com/LaskaKit/ESP32-C3_OLED_kit/blob/main/img/ArduinoIDE_1.jpg)
 
-![ESP32-C3 OLED kit a přidání knihovny](https://github.com/LaskaKit/ESP32-C3_OLED_kit/blob/main/pic/ArduinoIDE_2.jpg)
+![ESP32-C3 OLED kit a přidání knihovny](https://github.com/LaskaKit/ESP32-C3_OLED_kit/blob/main/img/ArduinoIDE_2.jpg)
 
-![ESP32-C3 OLED kit a přidání knihovny](https://github.com/LaskaKit/ESP32-C3_OLED_kit/blob/main/pic/ArduinoIDE_3.jpg)
+![ESP32-C3 OLED kit a přidání knihovny](https://github.com/LaskaKit/ESP32-C3_OLED_kit/blob/main/img/ArduinoIDE_3.jpg)
 
 Instalace podpory OLED 
 
-![ESP32-C3 OLED kit a podpora OLED](https://github.com/LaskaKit/ESP32-C3_OLED_kit/blob/main/pic/ArduinoIDE_4.jpg)
+![ESP32-C3 OLED kit a podpora OLED](https://github.com/LaskaKit/ESP32-C3_OLED_kit/blob/main/img/ArduinoIDE_4.jpg)
 
 Instalace knihovny SCD41
 
-![ESP32-C3 OLED kit a podpora SCD41](https://github.com/LaskaKit/ESP32-C3_OLED_kit/blob/main/pic/ArduinoIDE_5.jpg)
+![ESP32-C3 OLED kit a podpora SCD41](https://github.com/LaskaKit/ESP32-C3_OLED_kit/blob/main/img/ArduinoIDE_5.jpg)
 
 a/nebo BME280
 
-![ESP32-C3 OLED kit a podpora BME280](https://github.com/LaskaKit/ESP32-C3_OLED_kit/blob/main/pic/ArduinoIDE_5.1.jpg)
+![ESP32-C3 OLED kit a podpora BME280](https://github.com/LaskaKit/ESP32-C3_OLED_kit/blob/main/img/ArduinoIDE_5.1.jpg)
 
 a/nebo SHT41
 
-![ESP32-C3 OLED kit a podpora SHT41](https://github.com/LaskaKit/ESP32-C3_OLED_kit/blob/main/pic/ArduinoIDE_5.2.jpg)
+![ESP32-C3 OLED kit a podpora SHT41](https://github.com/LaskaKit/ESP32-C3_OLED_kit/blob/main/img/ArduinoIDE_5.2.jpg)
 
 Vybereme správnou desku
 
-![ESP32-C3 OLED kit a výběr desky](https://github.com/LaskaKit/ESP32-C3_OLED_kit/blob/main/pic/ArduinoIDE_6.jpg)
+![ESP32-C3 OLED kit a výběr desky](https://github.com/LaskaKit/ESP32-C3_OLED_kit/blob/main/img/ArduinoIDE_6.jpg)
 
 A Port (ten se objeví po zasunutí USB-C kabelu do počítače)
 
-![ESP32-C3 OLED kit a výběr portu](https://github.com/LaskaKit/ESP32-C3_OLED_kit/blob/main/pic/ArduinoIDE_7.jpg)
+![ESP32-C3 OLED kit a výběr portu](https://github.com/LaskaKit/ESP32-C3_OLED_kit/blob/main/img/ArduinoIDE_7.jpg)
 
 Zkopírujeme kód z https://github.com/LaskaKit/ESP32-C3_OLED_kit/tree/main/SW a naprogramuješ
 
-![ESP32-C3 OLED kit a nahrání programu do desky](https://github.com/LaskaKit/ESP32-C3_OLED_kit/blob/main/pic/ArduinoIDE_8.jpg)
+![ESP32-C3 OLED kit a nahrání programu do desky](https://github.com/LaskaKit/ESP32-C3_OLED_kit/blob/main/img/ArduinoIDE_8.jpg)
 
 A je hotovo :-) 
 
 ## ESP32-C3 OLED kit a přišroubování držáku čidla 
-![ESP32-C3 OLED kit a přišroubování držáku čidla](https://github.com/LaskaKit/ESP32-C3_OLED_kit/blob/main/pic/2.1.jpg)
+![ESP32-C3 OLED kit a přišroubování držáku čidla](https://github.com/LaskaKit/ESP32-C3_OLED_kit/blob/main/img/2.1.jpg)
 
 Nejprve přišroubuj držák čidla do krabičky. Použij šrouby 2.2x8mm. Tento držák je buď určen pro čidlo [BME280 (tlak, teplota, vlhkost)](https://www.laskakit.cz/arduino-senzor-tlaku--teploty-a-vlhkosti-bme280/) nebo [SCD41 (CO2, teplota, vlhkost)](https://www.laskakit.cz/laskakit-scd41-senzor-co2--teploty-a-vlhkosti-vzduchu/)
 
 ## ESP32-C3 OLED kit a propojení uŠup kabelů s jednotlivými moduly
-![ESP32-C3 OLED kit a propojení uŠup kabelů s jednotlivými moduly](https://github.com/LaskaKit/ESP32-C3_OLED_kit/blob/main/pic/3.1.jpg)
+![ESP32-C3 OLED kit a propojení uŠup kabelů s jednotlivými moduly](https://github.com/LaskaKit/ESP32-C3_OLED_kit/blob/main/img/3.1.jpg)
 
 Nyní propojíme jednotlivé moduly. Mezi ESP32-C3-LPkit a SCD41 doporučuji použít 5cm uŠup kabel, a mezi OLED a SCD41 pak použít 10cm uŠup kabel.
 
 ## ESP32-C3 OLED kit a připevnění modulů
-![ESP32-C3 OLED kit a připevnění modulů](https://github.com/LaskaKit/ESP32-C3_OLED_kit/blob/main/pic/5.1.jpg)
+![ESP32-C3 OLED kit a připevnění modulů](https://github.com/LaskaKit/ESP32-C3_OLED_kit/blob/main/img/5.1.jpg)
 
 Přišroubuj OLED a čidlo ke krabičce. Využij šrouby o velikosti 2.2x5mm. 
 
 ## ESP32-C3 OLED kit a připevnění ESP32-C3-LPkit
-![ESP32-C3 OLED kit a připevnění ESP32-C3-LPkit](https://github.com/LaskaKit/ESP32-C3_OLED_kit/blob/main/pic/6.1.jpg)
+![ESP32-C3 OLED kit a připevnění ESP32-C3-LPkit](https://github.com/LaskaKit/ESP32-C3_OLED_kit/blob/main/img/6.1.jpg)
 
 Hlavní řídící desku jenom zasuneš do předem vytištěných drážek. Zasunutí je jednoduché a díky správné pozici desky vůči krabičce, USB-C konektor bude směřovat do do díry v zadní straně krabičky. Takto se bude deska programovat a napájet. 
 
 ## ESP32-C3 OLED kit a kompletace
-![ESP32-C3 OLED kit a smontování](https://github.com/LaskaKit/ESP32-C3_OLED_kit/blob/main/pic/9.1.jpg)
+![ESP32-C3 OLED kit a smontování](https://github.com/LaskaKit/ESP32-C3_OLED_kit/blob/main/img/9.1.jpg)
 
 Nakonec sešroubuješ obě části krabičky k sobě. A to je všechno :-) 
