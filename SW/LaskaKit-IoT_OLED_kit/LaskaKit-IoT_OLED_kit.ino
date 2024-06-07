@@ -27,11 +27,12 @@
 #include <Wire.h>
 #include <Adafruit_GFX.h>
 #include <Adafruit_SH110X.h>
+#include <Math.h>
 
 // Choose your version | Vyber svou verze kitu
-#define SCD41
+//#define SCD41
 //#define BME280
-//#define SHT4x
+#define SHT4x
 
 // OLED 
 // uncomment only one of them, check the solderbridge on LaskaKit OLED
@@ -91,8 +92,10 @@ void setup() {
     //               |      |
     if (SSCD41.begin(false, true) == false) {
       Serial.println("SCD41 was not set correctly. Check the connection.");
-     while (1) ;
+      displayMessage("SCD41", "NOK, was it correct defined?");
+      while (1) ;
     }
+    displayMessage("SCD41", "OK, waiting for measurement");
     if (SSCD41.startLowPowerPeriodicMeasurement() == true) {
       Serial.println("Low power mode enabled.");
     }
@@ -100,8 +103,10 @@ void setup() {
     /*----- BME280 sequence ------*/
     if (! bme.begin(BME280_ADDRESS)) {
       Serial.println("Could not find a valid BME280 sensor, check wiring!");
+      displayMessage("BME280", "NOK, was it defined correct?");
       while (1);
     }
+    displayMessage("BME280", "OK, waiting for measurement");
     Serial.println("-- Weather Station Scenario --");
     Serial.println("forced mode, 1x temperature / 1x humidity / 1x pressure oversampling,");
     Serial.println("filter off");
@@ -115,13 +120,13 @@ void setup() {
     /*----- SHT4x sequence ------*/
     if (! sht4.begin()) {
       Serial.println("SHT4x not found");
-      Serial.println("Check the connection");
+      displayMessage("SHT4x", "NOK, was it defined correct?");
       while (1) delay(1);
     }
+    displayMessage("SHT4x", "OK, waiting for measurement");
     sht4.setPrecision(SHT4X_HIGH_PRECISION); // highest resolution
     sht4.setHeater(SHT4X_NO_HEATER); // no heater
   #endif
-
 
   Serial.println("Setup done");
 }
@@ -158,12 +163,14 @@ void loop() {
     display.setFont(&DSEG14_Classic_Bold_12);
     display.setTextColor(SH110X_WHITE);
     display.setCursor(20, 60);
-    display.println(temperature);
+    display.print((round(temperature * 10) / 10.0), 1);
+    display.println("C");
     // Humidity
     display.setFont(&DSEG14_Classic_Bold_12);
     display.setTextColor(SH110X_WHITE);
     display.setCursor(80, 60);
-    display.println(humidity);
+    display.print(humidity);
+    display.println("%");
   }
 #elif defined (BME280)
   temperature = bme.readTemperature();
@@ -192,12 +199,14 @@ void loop() {
   display.setFont(&DSEG14_Classic_Bold_12);
   display.setTextColor(SH110X_WHITE);
   display.setCursor(20, 60);
-  display.println(temperature);
+  display.print((round(temperature * 10) / 10.0), 1);
+  display.println("C");
     // Humidity
   display.setFont(&DSEG14_Classic_Bold_12);
   display.setTextColor(SH110X_WHITE);
   display.setCursor(80, 60);
-  display.println(humidity);
+  display.print(humidity);
+  display.println("%");
 
 #else SHT4x
   sensors_event_t hum, temp; // temperature and humidity variables
@@ -220,7 +229,8 @@ void loop() {
   display.setFont(&DSEG14_Classic_Bold_32);
   display.setTextColor(SH110X_WHITE);
   display.setCursor(10, 40);
-  display.println(temperature);
+  display.print((round(temperature * 10) / 10.0), 1);
+  display.println("C");
     // Humidity
   display.setFont(&DSEG14_Classic_Bold_12);
   display.setTextColor(SH110X_WHITE);
@@ -235,4 +245,18 @@ void loop() {
   
   Serial.println("End of loop");
   delay(1000);
+}
+
+void displayMessage(char* sensor, char* message){
+    
+    display.setFont(NULL);
+    display.setTextColor(SH110X_WHITE);
+    display.setCursor(5, 5);
+    display.print("Senzor ");
+    display.print(sensor);
+    display.print(" is ");
+    display.setCursor(5, 20);
+    display.println(message);
+      // update display
+    display.display();
 }
