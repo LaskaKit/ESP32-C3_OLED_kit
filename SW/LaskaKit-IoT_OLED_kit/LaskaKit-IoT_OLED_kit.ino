@@ -31,8 +31,8 @@
 
 // Choose your version | Vyber svou verze kitu
 //#define SCD41
-//#define BME280
-#define SHT4x
+#define BME280
+//#define SHT4x
 
 // OLED 
 // uncomment only one of them, check the solderbridge on LaskaKit OLED
@@ -45,7 +45,6 @@
   SCD4x SSCD41;
 #elif defined (BME280)
   #include <Adafruit_BME280.h> 
-  #define BME280_ADDRESS (0x77)
   Adafruit_BME280 bme;
 #else SHT4x
   #include <Adafruit_SHT4x.h>
@@ -57,7 +56,6 @@
 #include "DSEG14_Classic_Bold_12px.h"
 
 Adafruit_SH1106G display = Adafruit_SH1106G(128, 64, &Wire, -1);
-
 
 int co2 = 0;
 float temperature = 0.0;
@@ -71,9 +69,6 @@ void setup() {
   digitalWrite(POWER, HIGH); // enable power supply for uSup
   delay(500);   
 
-  while (!Serial) {
-    ; // wait for serial port to connect. Needed for native USB
-  }
   Serial.println("Setup start");
   // set dedicated I2C pins 8 - SDA, 10 SCL for ESP32-C3-LPKit
   Wire.begin(8, 10);
@@ -99,24 +94,23 @@ void setup() {
     if (SSCD41.startLowPowerPeriodicMeasurement() == true) {
       Serial.println("Low power mode enabled.");
     }
-  #elif defined (BME280)
-    /*----- BME280 sequence ------*/
-    if (! bme.begin(BME280_ADDRESS)) {
-      Serial.println("Could not find a valid BME280 sensor, check wiring!");
-      displayMessage("BME280", "NOK, was it defined correct?");
-      while (1);
+  #elif defined BME280
+    unsigned status;
+    
+    // default settings
+    status = bme.begin();  
+    // You can also pass in a Wire library object like &Wire2
+    // status = bme.begin(0x76, &Wire2)
+    if (!status) {
+        Serial.println("Could not find a valid BME280 sensor, check wiring, address, sensor ID!");
+        Serial.print("SensorID was: 0x"); Serial.println(bme.sensorID(),16);
+        Serial.print("        ID of 0xFF probably means a bad address, a BMP 180 or BMP 085\n");
+        Serial.print("   ID of 0x56-0x58 represents a BMP 280,\n");
+        Serial.print("        ID of 0x60 represents a BME 280.\n");
+        Serial.print("        ID of 0x61 represents a BME 680.\n");
+        while (1) delay(10);
     }
-    displayMessage("BME280", "OK, waiting for measurement");
-    Serial.println("-- Weather Station Scenario --");
-    Serial.println("forced mode, 1x temperature / 1x humidity / 1x pressure oversampling,");
-    Serial.println("filter off");
-    bme.setSampling(Adafruit_BME280::MODE_FORCED,
-                    Adafruit_BME280::SAMPLING_X1, // temperature
-                    Adafruit_BME280::SAMPLING_X1, // pressure
-                    Adafruit_BME280::SAMPLING_X1, // humidity
-                    Adafruit_BME280::FILTER_OFF   );
-    delay(10);
-  #else SHT4x
+  #elif defined SHT4x
     /*----- SHT4x sequence ------*/
     if (! sht4.begin()) {
       Serial.println("SHT4x not found");
@@ -126,6 +120,12 @@ void setup() {
     displayMessage("SHT4x", "OK, waiting for measurement");
     sht4.setPrecision(SHT4X_HIGH_PRECISION); // highest resolution
     sht4.setHeater(SHT4X_NO_HEATER); // no heater
+  #else
+    Serial.print("Error, no sensor defined!");
+    display.setFont(&DSEG14_Classic_Bold_12);
+    display.setTextColor(SH110X_WHITE);
+    display.setCursor(10, 40);
+    display.println("Error, no sensor defined!");
   #endif
 
   Serial.println("Setup done");
@@ -172,7 +172,9 @@ void loop() {
     display.print(humidity);
     display.println("%");
   }
-#elif defined (BME280)
+#elif defined BME280
+  
+  Serial.println("SCD41 read mesurement");
   temperature = bme.readTemperature();
   humidity    = bme.readHumidity();
   pressure    = bme.readPressure() / 100.0F;  
@@ -208,7 +210,7 @@ void loop() {
   display.print(humidity);
   display.println("%");
 
-#else SHT4x
+#elif defined SHT4x
   sensors_event_t hum, temp; // temperature and humidity variables
  
   sht4.getEvent(&hum, &temp);
@@ -238,6 +240,12 @@ void loop() {
   display.print(humidity);
   display.setCursor(80, 60);
   display.println("% rH");
+#else
+  Serial.print("Error, no sensor defined!");
+  display.setFont(&DSEG14_Classic_Bold_12);
+  display.setTextColor(SH110X_WHITE);
+  display.setCursor(10, 40);
+  display.println("Error, no sensor defined!");
 #endif
 
   // update display
