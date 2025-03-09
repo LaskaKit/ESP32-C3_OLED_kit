@@ -30,15 +30,15 @@
 #include <Math.h>
 
 // Choose your version | Vyber svou verze kitu
-//#define SCD41
-#define BME280
+#define SCD41
+//#define BME280
 //#define SHT4x
 
 // OLED 
 // uncomment only one of them, check the solderbridge on LaskaKit OLED
 #define OLED_Address 0x3c //initialize with the I2C addr 0x3C
 //#define OLED_Address 0x3d  //initialize with the I2C addr 0x3D
-#define POWER 4               // Power pin 
+#define POWER 2               // Power pin 
 
 #ifdef SCD41
   #include <SparkFun_SCD4x_Arduino_Library.h>
@@ -71,7 +71,7 @@ void setup() {
 
   Serial.println("Setup start");
   // set dedicated I2C pins 8 - SDA, 10 SCL for ESP32-C3-LPKit
-  Wire.begin(8, 10);
+  Wire.begin();
 
   /*----- OLED sequence ------*/
   delay(250);                        // wait for the OLED to power up
