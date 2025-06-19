@@ -38,7 +38,10 @@
 // uncomment only one of them, check the solderbridge on LaskaKit OLED
 #define OLED_Address 0x3c //initialize with the I2C addr 0x3C
 //#define OLED_Address 0x3d  //initialize with the I2C addr 0x3D
-#define POWER 2               // Power pin 
+
+// Board
+//#define POWER 2               // Power pin for ESP32-C3-LPKit v2.1
+#define POWER 4               // Power pin for ESP32-C3-LPKit v3 and newer
 
 #ifdef SCD41
   #include <SparkFun_SCD4x_Arduino_Library.h>
@@ -71,7 +74,7 @@ void setup() {
 
   Serial.println("Setup start");
   // set dedicated I2C pins 8 - SDA, 10 SCL for ESP32-C3-LPKit
-  Wire.begin();
+  Wire.begin(8, 10); // 8,10 = ESP32-C3-LPKit v3
 
   /*----- OLED sequence ------*/
   delay(250);                        // wait for the OLED to power up
